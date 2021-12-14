@@ -2,11 +2,11 @@ class Reg < Formula
     desc " Docker registry v2 command line client and repo listing generator with security checks. "
     homepage "https://github.com/genuinetools/reg"
     head "https://github.com/genuinetools/reg", branch: "master"
-    
+
     depends_on "go" => :build
   
     def install
-      system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./main.go"
+      system "go", "build", "./main.go"
     end
   
     test do
