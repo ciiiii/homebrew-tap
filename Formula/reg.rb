@@ -8,9 +8,10 @@ class Reg < Formula
     depends_on "go" => :build
   
     def install
-      # ENV["GOPATH"] = buildpath
-      # path = buildpath/"src/github.com/genuinetools/reg"
-      # system "go", "get", "-u", "github.com/genuinetools/reg"
+      ENV["GOPATH"] = buildpath
+      Dir.chdir buildpath/"src/github.com/genuinetools/reg" do
+        system "go", "get", "./"
+      end
       system "go", "build", "-o", "#{bin}/reg"
     end
   
