@@ -14,7 +14,7 @@ class Reg < Formula
       (buildpath/"build/src").mkpath
       ln_s buildpath, buildpath/"build/src/github.com"
       system "GOPATH=$PWD/build go get github.com/genuinetools/reg"
-      bin.install "build/bin/ls-go"
+      bin.install "build/bin/reg"
     end
   
     test do
