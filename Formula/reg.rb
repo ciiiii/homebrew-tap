@@ -6,7 +6,7 @@ class Reg < Formula
     depends_on "go" => :build
   
     def install
-      system "go", "build", "main.go"
+      system "go", "build", "-o=reg", "*.go"
     end
   
     test do
