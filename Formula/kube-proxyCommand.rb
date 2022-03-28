@@ -11,7 +11,7 @@ class KubeProxyCommand < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Darwin-arm64.tar.gz"
-      sha256 "a4a604e39af92cf5d4eeefa2b0949555b0d67c7b34c36c1b24d67e0dfe590e13"
+      sha256 "5de5fe6debf0511e96f0d723a1d265f5ae3265d0b1ec0b259829faa1ff089f84"
 
       def install
         if build.head?
@@ -25,7 +25,7 @@ class KubeProxyCommand < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Darwin-x86_64.tar.gz"
-      sha256 "78548b6fd73504ebdd377b46f0a104667bd3f5876cbeaf35f2b5ba8683dbe296"
+      sha256 "00e3b10b1ebde43b67eb85876d5da795dccbfa861608af405979f62c6e7ef835"
 
       def install
         if build.head?
@@ -42,7 +42,7 @@ class KubeProxyCommand < Formula
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Linux-x86_64.tar.gz"
-      sha256 "bd19bef64a98e59481c485e717f2751d7bc3f926394e34c197fb16f1b3668cb7"
+      sha256 "3a96b9a8b853fcb2b94a0c562c7d462b2ec89a211c6c5e2d34726cc174e3216b"
 
       def install
         if build.head?
@@ -56,7 +56,7 @@ class KubeProxyCommand < Formula
     end
   end
 
-  head: "https://github.com/ciiiii/kube-proxyCommand", branch: "master"
+  head "https://github.com/ciiiii/kube-proxyCommand", branch: "master"
   head do
     depends_on "go" => :build
   end
