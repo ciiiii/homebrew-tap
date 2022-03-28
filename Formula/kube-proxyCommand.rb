@@ -9,13 +9,13 @@ class KubeProxyCommand < Formula
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Darwin-x86_64.tar.gz"
-      sha256 "9a5b3b9b413dfb79610ec02f76ec685699de6e0cd740fab473b10ac95fed273e"
+    if Hardware::CPU.arm?
+      url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Darwin-arm64.tar.gz"
+      sha256 "a4a604e39af92cf5d4eeefa2b0949555b0d67c7b34c36c1b24d67e0dfe590e13"
 
       def install
         if build.head?
-          ldflags = %@[
+          ldflags = %W[
             -s -w
           ]
           system "go", "build", *std_go_args(output: "kube-proxyCommand", ldflags: ldflags.join(" ")), "main.go"
@@ -23,13 +23,13 @@ class KubeProxyCommand < Formula
         bin.install "kube-proxyCommand"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Darwin-arm64.tar.gz"
-      sha256 "d6bf7a416d73728f03c7749cfc2a58156c2785e30a631116092bcad8ddd94d91"
+    if Hardware::CPU.intel?
+      url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Darwin-x86_64.tar.gz"
+      sha256 "78548b6fd73504ebdd377b46f0a104667bd3f5876cbeaf35f2b5ba8683dbe296"
 
       def install
         if build.head?
-          ldflags = %@[
+          ldflags = %W[
             -s -w
           ]
           system "go", "build", *std_go_args(output: "kube-proxyCommand", ldflags: ldflags.join(" ")), "main.go"
@@ -42,11 +42,11 @@ class KubeProxyCommand < Formula
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/ciiiii/kube-proxyCommand/releases/download/v0.1.0/kube-proxyCommand_0.1.0_Linux-x86_64.tar.gz"
-      sha256 "73052dd3c2a4ba994d15d2a43e29667889a2d9ef1179aa573f9c1885b70775c8"
+      sha256 "bd19bef64a98e59481c485e717f2751d7bc3f926394e34c197fb16f1b3668cb7"
 
       def install
         if build.head?
-          ldflags = %@[
+          ldflags = %W[
             -s -w
           ]
           system "go", "build", *std_go_args(output: "kube-proxyCommand", ldflags: ldflags.join(" ")), "main.go"
